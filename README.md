@@ -24,17 +24,15 @@ Gestion de Films/Series
 </div>
 
 <div id="allData">
-
-  <div class="detail">
-  
+  <div class="detail">Item</div>
 </div>
-
-
-</div>
-
-
-  
 </body>
+
+<style>
+  body{background-color:black;}
+</style>
+  
+
 
 
   
