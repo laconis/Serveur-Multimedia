@@ -2,6 +2,10 @@
 # Serveur-Multimédia
 Gestion de Films/Series
 
+
+
+document.write(`
+
 <html>
 
 <head>
@@ -10,31 +14,92 @@ Gestion de Films/Series
 
 <body>
   
-<div id="header">
-<img src="" class="logo">
-</div>
+<header>
+<div class="logo">NicoFlix</div>
+</header>
 
-<div id="sea">
-  <input type="text" class="inputSearchFilmSeries">
-  <select>
-    <option>Item 1</option>
+<div id="searchMaster">
+
+<input type="text" class="inputSearchFilmSeries" placeholder="Recherche">
+
+  <select class="sel1">
+    <option>Films</option>
+    <option>Séries</option>
+    <option>Documentaires</option>
   </select>  
-    <select>
-    <option>Item 1</option>
+
+    <select class="sel2">
+    <option>Sel 2</option>
   </select>
-</div>
+
+</div>  <!-- Fin searchMaster -->
+
+
+<div id="content">
 
 <div id="allData">
-  <div class="detail">Item</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
+<div class="Datadetail">&nbsp</div>
 </div>
+
+<div id="histo">
+<div class="reco">Recommdations</div>
+<div class="DatadetailHisto">&nbsp</div>
+<div class="DatadetailHisto">&nbsp</div>
+<div class="DatadetailHisto">&nbsp</div>
+<div class="DatadetailHisto">&nbsp</div>
+</div>
+
+</div>
+
+
 </body>
 
 <style>
-  body{background-color:black;}
+
+body{background-color:black;}
+header{height:50px;}
+#searchMaster{margin:auto;width:1200px;clear:both;margin-bottom:25px;}
+.inputSearchFilmSeries{display:block;margin:auto;width:800px;height:40px;border-radius:10px;float:left;padding-left:50px;}
+.sel1{display:block;float:left;width:150px;height:40px;border-radius:10px;padding-left:20px;margin-left:20px;}
+.sel2{display:block;float:left;width:150px;height:40px;border-radius:10px;padding-left:20px;margin-left:20px;}
+.logo{color:red;font-size:20px;font-weight:bold;}
+.content{width:1650px;margin:auto;}
+#allData{width:1250px;float:left;margin-left:200px;}
+.Datadetail{width:200px;height:250px;float:left;background-color:#f0f0f0;margin:25px;float:left;border-radius:5px;float:left;}
+.DatadetailHisto{width:200px;height:250px;float:left;background-color:#f0f0f0;margin:25px;float:left;border-radius:5px;float:left;background-color:yellow;}
+.reco{color:white;font-weight:bold; }
+#histo{ width:300px;float:right;}
+.DatadetailHisto{background-color:yellow;}
 </style>
+  </html>
+`);
+
+
   
-
-
-
-  
-</html>
