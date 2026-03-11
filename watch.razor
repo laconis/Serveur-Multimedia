@@ -1,0 +1,43 @@
+@page "/watch/{Id:int}"
+@inject VideoService VideoService
+
+<h1>Watch</h1>
+
+@if (video == null)
+{
+    <p>Chargement...</p>
+}
+else
+{
+    <div class="watch-container">
+
+        <video controls width="900">
+            <source src="@video.FilePath" type="video/mp4">
+        </video>
+
+        <h2>@video.FileName</h2>
+
+        <p>
+            Durée : @video.DurationSec sec
+        </p>
+
+        <p>
+            Résolution : @video.Resolution
+        </p>
+
+    </div>
+}
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; }
+
+    Video? video;
+
+    protected override async Task OnInitializedAsync()
+    {
+        video = await VideoService.GetVideoById(Id);
+    }
+
+}
