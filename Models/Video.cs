@@ -62,6 +62,13 @@ namespace Newtube.Models
             }
         }
 
+
+        //Propriété calculé à la création de la vidéo
+        [NotMapped]
+        public string ThunbnailUrl => string.isNullOrWhiteSpace(CoverPath) ? "/images/thumbDefault" : Coverpath;
+
+
+        
         [NotMapped]
         public string SizeFormatted
         {
