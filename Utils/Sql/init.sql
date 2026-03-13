@@ -26,3 +26,15 @@ CREATE TABLE videos (
     CONSTRAINT fk_videos_category
         FOREIGN KEY (category_id) REFERENCES categories(id)
 );
+
+CREATE TABLE watch_progress (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    video_id INT NOT NULL,
+    current_time DOUBLE NOT NULL DEFAULT 0,
+    duration DOUBLE NULL,
+    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP,
+    UNIQUE KEY uq_user_video (user_id, video_id)
+);
+
