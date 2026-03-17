@@ -110,3 +110,89 @@ FROM videos
 WHERE is_published = 1 AND is_deleted = 0
 ORDER BY created_at DESC
 LIMIT 20;
+
+
+#Incrémenter le nombre de vues d’une vidéo
+DELIMITER $$
+CREATE PROCEDURE increment_video_views(IN p_video_id INT)
+BEGIN
+    UPDATE videos
+    SET views = views + 1
+    WHERE id = p_video_id AND is_deleted = 0;
+END $$
+DELIMITER ;
+
+
+# 2.Mettre à jour la progression d’un utilisateur
+DELIMITER $$
+CREATE PROCEDURE update_watch_progress(
+    IN p_user_id INT,
+    IN p_video_id INT,
+    IN p_current_time DOUBLE,
+    IN p_duration DOUBLE
+)
+BEGIN
+    INSERT INTO watch_progress (user_id, video_id, current_time, duration)
+    VALUES (p_user_id, p_video_id, p_current_time, p_duration)
+    ON DUPLICATE KEY UPDATE
+        current_time = p_current_time,
+        duration = p_duration,
+        updated_at = CURRENT_TIMESTAMP;
+END $$
+DELIMITER ;
+
+
+# Lister les vidéos d’une catégorie
+DELIMITER $$
+CREATE PROCEDURE get_videos_by_category(IN p_category_id INT)
+BEGIN
+    SELECT *
+    FROM videos
+    WHERE category_id = p_category_id
+      AND is_published = 1
+      AND is_deleted = 0
+    ORDER BY created_at DESC;
+END $$
+DELIMITER ;
+
+
+#Publier / dépublier une vidéo
+DELIMITER $$
+CREATE PROCEDURE set_video_publish_status(
+    IN p_video_id INT,
+    IN p_status TINYINT
+)
+BEGIN
+    UPDATE videos
+    SET is_published = p_status,
+        updated_at = CURRENT_TIMESTAMP
+    WHERE id = p_video_id AND is_deleted = 0;
+END $$
+DELIMITER ;
+
+
+
+#audit #audit #audit #audit #audit #audit #audit #audit #audit #audit #audit #audit #audit 
+
+    
+CREATE TABLE video_audit (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    video_id INT NOT NULL,
+    action VARCHAR(50) NOT NULL,          -- INSERT, UPDATE, DELETE, SOFT_DELETE, PUBLISH...
+    old_data JSON NULL,
+    new_data JSON NULL,
+    changed_by VARCHAR(100) NULL,
+    changed_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE system_logs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    event_type VARCHAR(50) NOT NULL,   -- LOGIN, ERROR, VIDEO_VIEW, API_CALL...
+    message TEXT NOT NULL,
+    user_id INT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+
+#audit #audit #audit #audit #audit #audit #audit #audit #audit #audit #audit #audit #audit 
+
