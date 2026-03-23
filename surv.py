@@ -1,9 +1,10 @@
 import tkinter as tk
-from tkinter import ttk, messagebox
+from tkinter import ttk, messagebox, filedialog
 import psutil
 import signal
 import platform
 import argparse
+import subprocess
 import time
 
 # ---------------------------------------------------------
@@ -23,6 +24,38 @@ def format_duree(seconds):
     m = (seconds % 3600) // 60
     s = seconds % 60
     return f"{h:02d}:{m:02d}:{s:02d}"
+
+
+# ---------------------------------------------------------
+#  LANCER DES SCRIPTS DEPUIS UN FICHIER TXT
+# ---------------------------------------------------------
+def lancer_scripts_depuis_fichier():
+    fichier = filedialog.askopenfilename(
+        title="Sélectionner le fichier de paramètres",
+        filetypes=[("Fichiers texte", "*.txt")]
+    )
+    if not fichier:
+        return
+
+    script = filedialog.askopenfilename(
+        title="Sélectionner le script Python à lancer",
+        filetypes=[("Python", "*.py")]
+    )
+    if not script:
+        return
+
+    with open(fichier, "r", encoding="utf-8") as f:
+        for ligne in f:
+            ligne = ligne.strip()
+            if not ligne:
+                continue
+
+            args = ligne.split()
+            p = subprocess.Popen(["python", script] + args)
+
+            print(f"Lancé : python {script} {ligne} (PID {p.pid})")
+
+    refresh_table()
 
 
 # ---------------------------------------------------------
@@ -202,6 +235,9 @@ btn_ctrlc.grid(row=0, column=0, padx=10)
 
 btn_kill = tk.Button(frame_btn, text="Tuer le processus", command=tuer_processus, bg="#ff5555")
 btn_kill.grid(row=0, column=1, padx=10)
+
+btn_lancer = tk.Button(frame_btn, text="Lancer scripts depuis fichier", command=lancer_scripts_depuis_fichier)
+btn_lancer.grid(row=0, column=2, padx=10)
 
 refresh_table()
 fen.mainloop()
