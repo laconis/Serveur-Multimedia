@@ -87,4 +87,42 @@ namespace Newtube.Models
             }
         }
     }
+
+    public class VideoMetadataService
+{
+    public (int durationSec, string resolution) GetMetadata(string videoPath)
+    {
+        var ffProbe = new FFProbe();
+        var info = ffProbe.GetMediaInfo(videoPath);
+
+        int durationSec = (int)info.Duration.TotalSeconds;
+
+        var videoStream = info.Streams.First(s => s.CodecType == "video");
+        int width = videoStream.Width.GetValueOrDefault();
+        int height = videoStream.Height.GetValueOrDefault();
+        string resolution = $"{width}x{height}";
+
+        return (durationSec, resolution);
+    }
+}
+
+
+public class ThumbnailService
+{
+    //retourne String pour la création du Thumb // 
+    public async Task<string> GenerateThumbnailAsync(string videoPath, string outputPath)
+    {
+        // Exemple : capture à 5 secondes, 320x180
+        await FFMpegArguments
+            .FromFileInput(videoPath)
+            .OutputToFile(outputPath, overwrite: true, options => options
+                .Seek(TimeSpan.FromSeconds(5))
+                .WithFrameOutputCount(1)
+                .WithVideoFilters(f => f.Scale(320, 180))
+            )
+            .ProcessAsynchronously();
+
+        return outputPath;
+    }
+}
 }
