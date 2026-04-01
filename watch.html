@@ -1,1 +1,589 @@
+document.write(`
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NicoFlix</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --bg: #141414;
+            --bg-soft: #1b1b1b;
+            --bg-card: #202020;
+            --bg-card-2: #2b2b2b;
+            --text: #ffffff;
+            --text-soft: #b3b3b3;
+            --red: #e50914;
+            --red-hover: #ff1f2d;
+            --yellow: #f5c400;
+            --border: rgba(255, 255, 255, 0.08);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+    
+        body {
+            background:
+                radial-gradient(circle at top left, rgba(229, 9, 20, 0.10), transparent 22%),
+                linear-gradient(to bottom, #0f0f0f, #141414 180px);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        header {
+            height: 72px;
+            padding: 0 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            background: rgba(17, 17, 17, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 900;
+            color: var(--red);
+            letter-spacing: 1px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 18px;
+        }
+
+        .nav a {
+            color: var(--text-soft);
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--text);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--red), #7a0007);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .page {
+            max-width: 1600px;
+            margin: 28px auto;
+            padding: 0 20px 40px;
+        }
+
+        .hero {
+            min-height: 250px;
+            border-radius: 22px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            background:
+                linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.35)),
+                url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80") center/cover;
+            display: flex;
+            align-items: center;
+            padding: 36px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(229, 9, 20, 0.18);
+            color: #ffb3b7;
+            border: 1px solid rgba(229, 9, 20, 0.35);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 14px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            color: #dddddd;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            height: 45px;
+            padding: 0 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.25s ease;
+        }
+
+        .btn-primary {
+            background: var(--red);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--red-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.12);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.18);
+            transform: translateY(-2px);
+        }
+
+        #searchMaster {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .inputSearchFilmSeries,
+        .sel1,
+        .sel2,
+        .sel3 {
+            height: 46px;
+            border: 1px solid transparent;
+            border-radius: 12px;
+            background: #1f1f1f;
+            color: white;
+            padding: 0 15px;
+            font-size: 15px;
+            outline: none;
+            transition: 0.25s ease;
+        }
+
+        .inputSearchFilmSeries {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .sel1,
+        .sel2,
+        .sel3 {
+            min-width: 160px;
+            cursor: pointer;
+        }
+
+        .inputSearchFilmSeries::placeholder {
+            color: #909090;
+        }
+
+        .inputSearchFilmSeries:focus,
+        .sel1:focus,
+        .sel2:focus,
+        .sel3:focus {
+            box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.22);
+            border-color: rgba(229, 9, 20, 0.25);
+            background: #2a2a2a;
+        }
+
+        #content {
+            display: grid;
+            grid-template-columns: 1fr 330px;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .catalog-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            font-size: 14px;
+            color: var(--text-soft);
+        }
+
+        #allData {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 22px;
+        }
+
+        .super-card {
+            height: 320px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            background:
+                linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.16)),
+                url("https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80") center/cover;
+            box-shadow: var(--shadow);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            cursor: pointer;
+        }
+
+        .super-card:nth-child(2n) {
+            background:
+                linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.16)),
+                url("https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80") center/cover;
+        }
+
+        .super-card:nth-child(3n) {
+            background:
+                linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.16)),
+                url("https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80") center/cover;
+        }
+
+        .super-card:nth-child(4n) {
+            background:
+                linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.16)),
+                url("https://images.unsplash.com/photo-1513106580091-1d82408b8cd6?auto=format&fit=crop&w=900&q=80") center/cover;
+        }
+
+        .super-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 18px 38px rgba(0, 0, 0, 0.42);
+        }
+
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .top-badges {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            align-items: flex-start;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 28px;
+            padding: 0 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: bold;
+            backdrop-filter: blur(6px);
+        }
+
+        .badge-red {
+            background: rgba(229, 9, 20, 0.85);
+            color: white;
+        }
+
+        .badge-dark {
+            background: rgba(0, 0, 0, 0.55);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .card-bottom h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-size: 13px;
+            color: #dddddd;
+            margin-bottom: 10px;
+        }
+
+        .desc {
+            font-size: 13px;
+            color: #cccccc;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .mini-btn {
+            height: 34px;
+            padding: 0 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .mini-btn.play {
+            background: white;
+            color: black;
+        }
+
+        .mini-btn.play:hover {
+            transform: translateY(-1px);
+        }
+
+        .mini-btn.add {
+            background: rgba(255,255,255,0.12);
+            color: white;
+        }
+
+        .mini-btn.add:hover {
+            background: rgba(255,255,255,0.18);
+            transform: translateY(-1px);
+        }
+
+        #histo {
+            background: linear-gradient(180deg, #181818, #121212);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 92px;
+        }
+
+        .reco {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .reco-sub {
+            font-size: 13px;
+            color: var(--text-soft);
+            margin-bottom: 18px;
+        }
+
+        .DatadetailHisto {
+            min-height: 90px;
+            border-radius: 14px;
+            margin-bottom: 14px;
+            background: linear-gradient(135deg, #f5c400, #ffde59);
+            color: #1a1a1a;
+            padding: 14px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+            transition: 0.2s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .DatadetailHisto:hover {
+            transform: translateY(-3px) scale(1.01);
+        }
+
+        .DatadetailHisto strong {
+            font-size: 15px;
+        }
+
+        .DatadetailHisto span {
+            font-size: 13px;
+            color: #333;
+        }
+
+        @media (max-width: 1150px) {
+            #content {
+                grid-template-columns: 1fr;
+            }
+
+            #histo {
+                position: static;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .nav {
+                display: none;
+            }
+
+            .hero {
+                min-height: 220px;
+                padding: 24px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .inputSearchFilmSeries,
+            .sel1,
+            .sel2,
+            .sel3 {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 560px) {
+            header {
+                padding: 0 16px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .page {
+                padding: 0 14px 30px;
+            }
+
+            #allData {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+
+            .super-card {
+                height: 270px;
+            }
+
+            .card-bottom h3 {
+                font-size: 17px;
+            }
+
+            .hero h1 {
+                font-size: 26px;
+            }
+        }
+
+
+
+      /*
+      *   Watch
+      */
+
+
+      
+
+      #videoMaster{
+        display:block;
+        margin:auto;
+        width:1200px; 
+         height:600px;
+      }
+
+      
+    </style>
+</head>
+
+  <!--  STATIQUE
+  
+<body>
+
+    <header>      
+        <div class="header-left">
+            <div class="logo">Nicolas</div>
+            <nav class="nav">
+                <a href="#" class="active">Accueil</a>
+                <a href="#">Films</a>
+                <a href="#">Séries</a>
+                <a href="#">Documentaires</a>
+                <a href="#">Ma liste</a>
+            </nav>
+        </div>
+
+        <div class="header-right">
+            <div class="avatar">N</div>
+        </div>
+    </header>
+-->
+  
+    <div class="page">
+
+      <div id="infoVideo">
+      <h3>{{Titre}</h3> <h3>Durée : 1h45</h3>  <h3>{{Titre}</h3>
+      </div>
+     
+      <video id="videoMaster" width="640" height="360" controls>
+        <source src="video.mp4" type="video/mp4">
+        <source src="video.webm" type="video/webm">
+        Votre navigateur ne supporte pas la balise vidéo.
+      </video>
+
+      <div id="actionsVideo">
+      <p>Reprendre la lecture ? </p> 
+        
+        <pre>
+        var pattern = new Regex(@"^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$");
+        
+        bool match = pattern.IsMatch(input);
+        
+        if (match)
+        {
+            // pass
+        }
+        else
+        {
+            // fail
+        }          
+        </pre>
+        
+      </div>
+`);
+
+          
