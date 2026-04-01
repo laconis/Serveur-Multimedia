@@ -1,4 +1,4 @@
-
+document.write(`
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -25,6 +25,9 @@
             --border: rgba(255, 255, 255, 0.08);
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
         }
+
+
+        
 
         body {
             background:
@@ -516,7 +519,7 @@
 
     <header>
         <div class="header-left">
-            <div class="logo">NicoFlix</div>
+            <div class="logo">Nicolas</div>
             <nav class="nav">
                 <a href="#" class="active">Accueil</a>
                 <a href="#">Films</a>
@@ -551,12 +554,21 @@
         <div id="searchMaster">
             <input type="text" class="inputSearchFilmSeries" placeholder="Recherche un film, une série, un documentaire..." />
 
+
+            <!-- Choix de la catégorie -->
             <select class="sel1">
                 <option>Films</option>
                 <option>Séries</option>
                 <option>Documentaires</option>
+                <option>Divers</option>
             </select>
 
+            <!--
+                Si Films => Genre
+                Si Séries => Nom dossier
+                Si Documentaires => Genre
+            -->
+            
             <select class="sel2">
                 <option>Genre</option>
                 <option>Action</option>
@@ -564,7 +576,7 @@
                 <option>Science-fiction</option>
                 <option>Thriller</option>
             </select>
-
+   
             <select class="sel3">
                 <option>Trier par</option>
                 <option>Ajout récent</option>
@@ -578,11 +590,14 @@
                 <div class="catalog-head">
                     <div>
                         <div class="section-title">Catalogue</div>
-                        <div class="section-subtitle">15 contenus disponibles</div>
+                        <div class="section-subtitle">1562 contenus disponibles</div>
                     </div>
                 </div>
 
                 <div id="allData">
+
+
+             <!-- Debut vignette    -->
                     <div class="super-card">
                         <div class="card-overlay">
                             <div class="top-badges">
@@ -590,20 +605,28 @@
                                 <span class="badge badge-dark">★ 8.7</span>
                             </div>
                             <div class="card-bottom">
-                                <h3>Item 1</h3>
+                                <h3>123456789012345678901234567890</h3>
                                 <div class="meta">
-                                    <span>2025</span>
-                                    <span>Action</span>
+                                    <!-- Annee de sortie  -->
+                                    <span>1995</span>
+                                    <!-- Genre  -->
+                                    <span>Comédie</span>
+                                    <!-- Duree --> 
                                     <span>2h04</span>
                                 </div>
-                                <div class="desc">Une aventure sombre et nerveuse dans un monde qui clignote comme un serveur sous caféine.</div>
+                                <div class="desc">Un Indien dans la ville est un film français d'Hervé Palud, sorti en 1994, adapté du roman éponyme de Jean-Marie Pallardy. Un Indien dans la ville..</div>
                                 <div class="card-actions">
                                     <button class="mini-btn play">▶ Lecture</button>
                                     <button class="mini-btn add">+ Liste</button>
+                                    <button class="mini-btn reprise">14:53</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                 <!-- Fin  vignette  -->
+
+
+                    
 
                     <div class="super-card">
                         <div class="card-overlay">
@@ -682,13 +705,48 @@
                     <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Film</span><span class="badge badge-dark">★ 7.7</span></div><div class="card-bottom"><h3>Item 13</h3><div class="meta"><span>2022</span><span>Thriller</span><span>1h48</span></div><div class="desc">Ça joue sur les silences, les regards et les détails presque invisibles.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
                     <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Docu</span><span class="badge badge-dark">★ 8.6</span></div><div class="card-bottom"><h3>Item 14</h3><div class="meta"><span>2024</span><span>Documentaire</span><span>1h40</span></div><div class="desc">Dense, élégant, instructif, avec juste ce qu’il faut de souffle pour captiver.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
                     <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Top</span><span class="badge badge-dark">★ 9.3</span></div><div class="card-bottom"><h3>Item 15</h3><div class="meta"><span>2025</span><span>Action</span><span>2h18</span></div><div class="desc">Le gros morceau du catalogue. Celui qui débarque avec les bottes, la bande-son et l’impact.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
-                </div>
-
-
-        <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Top</span><span class="badge badge-dark">★ 9.3</span></div><div class="card-bottom"><h3>Item 15</h3><div class="meta"><span>2025</span><span>Action</span><span>2h18</span></div><div class="desc">Le gros morceau du catalogue. Celui qui débarque avec les bottes, la bande-son et l’impact.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
-                </div>
-
-        <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Top</span><span class="badge badge-dark">★ 9.3</span></div><div class="card-bottom"><h3>Item 15</h3><div class="meta"><span>2025</span><span>Action</span><span>2h18</span></div><div class="desc">Le gros morceau du catalogue. Celui qui débarque avec les bottes, la bande-son et l’impact.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Docu</span><span class="badge badge-dark">★ 8.6</span></div><div class="card-bottom"><h3>Item 14</h3><div class="meta"><span>2024</span><span>Documentaire</span><span>1h40</span></div><div class="desc">Dense, élégant, instructif, avec juste ce qu’il faut de souffle pour captiver.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Top</span><span class="badge badge-dark">★ 9.3</span></div><div class="card-bottom"><h3>Item 15</h3><div class="meta"><span>2025</span><span>Action</span><span>2h18</span></div><div class="desc">Le gros morceau du catalogue. Celui qui débarque avec les bottes, la bande-son et l’impact.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                     <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Film</span><span class="badge badge-dark">★ 7.9</span></div><div class="card-bottom"><h3>Item 5</h3><div class="meta"><span>2021</span><span>Comédie</span><span>1h44</span></div><div class="desc">Un chaos drôle, bien rythmé, avec assez d’énergie pour réveiller une base SQL en sommeil.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Film</span><span class="badge badge-dark">★ 8.2</span></div><div class="card-bottom"><h3>Item 6</h3><div class="meta"><span>2024</span><span>Action</span><span>2h10</span></div><div class="desc">Des poursuites, des ombres et un montage sec comme une requête bien indexée.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Série</span><span class="badge badge-dark">★ 8.8</span></div><div class="card-bottom"><h3>Item 7</h3><div class="meta"><span>2025</span><span>Thriller</span><span>8 épisodes</span></div><div class="desc">Ça démarre doucement, puis ça mord d’un coup comme un bug planqué depuis 3 semaines.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Top</span><span class="badge badge-dark">★ 9.0</span></div><div class="card-bottom"><h3>Item 8</h3><div class="meta"><span>2023</span><span>Science-fiction</span><span>2h01</span></div><div class="desc">Une ambiance immense, froide et brillante, comme un data center dans les étoiles.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Docu</span><span class="badge badge-dark">★ 7.8</span></div><div class="card-bottom"><h3>Item 9</h3><div class="meta"><span>2020</span><span>Documentaire</span><span>1h21</span></div><div class="desc">Un regard précis sur le réel, sans sucre inutile ni pirouette de scénario.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Film</span><span class="badge badge-dark">★ 8.5</span></div><div class="card-bottom"><h3>Item 10</h3><div class="meta"><span>2022</span><span>Drame</span><span>1h57</span></div><div class="desc">Une histoire plus lente mais dense, avec ce petit goût de nuit urbaine sous pluie fine.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Film</span><span class="badge badge-dark">★ 8.1</span></div><div class="card-bottom"><h3>Item 11</h3><div class="meta"><span>2021</span><span>Aventure</span><span>2h12</span></div><div class="desc">Une virée visuelle qui empile les décors réussis comme une stack bien rangée.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Série</span><span class="badge badge-dark">★ 8.3</span></div><div class="card-bottom"><h3>Item 12</h3><div class="meta"><span>2025</span><span>Comédie</span><span>12 épisodes</span></div><div class="desc">Léger, vif, et suffisamment absurde pour une soirée sans prise de tête.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Film</span><span class="badge badge-dark">★ 7.7</span></div><div class="card-bottom"><h3>Item 13</h3><div class="meta"><span>2022</span><span>Thriller</span><span>1h48</span></div><div class="desc">Ça joue sur les silences, les regards et les détails presque invisibles.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Docu</span><span class="badge badge-dark">★ 8.6</span></div><div class="card-bottom"><h3>Item 14</h3><div class="meta"><span>2024</span><span>Documentaire</span><span>1h40</span></div><div class="desc">Dense, élégant, instructif, avec juste ce qu’il faut de souffle pour captiver.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Top</span><span class="badge badge-dark">★ 9.3</span></div><div class="card-bottom"><h3>Item 15</h3><div class="meta"><span>2025</span><span>Action</span><span>2h18</span></div><div class="desc">Le gros morceau du catalogue. Celui qui débarque avec les bottes, la bande-son et l’impact.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Docu</span><span class="badge badge-dark">★ 8.6</span></div><div class="card-bottom"><h3>Item 14</h3><div class="meta"><span>2024</span><span>Documentaire</span><span>1h40</span></div><div class="desc">Dense, élégant, instructif, avec juste ce qu’il faut de souffle pour captiver.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Top</span><span class="badge badge-dark">★ 9.3</span></div><div class="card-bottom"><h3>Item 15</h3><div class="meta"><span>2025</span><span>Action</span><span>2h18</span></div><div class="desc">Le gros morceau du catalogue. Celui qui débarque avec les bottes, la bande-son et l’impact.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                       <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Film</span><span class="badge badge-dark">★ 7.9</span></div><div class="card-bottom"><h3>Item 5</h3><div class="meta"><span>2021</span><span>Comédie</span><span>1h44</span></div><div class="desc">Un chaos drôle, bien rythmé, avec assez d’énergie pour réveiller une base SQL en sommeil.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Film</span><span class="badge badge-dark">★ 8.2</span></div><div class="card-bottom"><h3>Item 6</h3><div class="meta"><span>2024</span><span>Action</span><span>2h10</span></div><div class="desc">Des poursuites, des ombres et un montage sec comme une requête bien indexée.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Série</span><span class="badge badge-dark">★ 8.8</span></div><div class="card-bottom"><h3>Item 7</h3><div class="meta"><span>2025</span><span>Thriller</span><span>8 épisodes</span></div><div class="desc">Ça démarre doucement, puis ça mord d’un coup comme un bug planqué depuis 3 semaines.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Top</span><span class="badge badge-dark">★ 9.0</span></div><div class="card-bottom"><h3>Item 8</h3><div class="meta"><span>2023</span><span>Science-fiction</span><span>2h01</span></div><div class="desc">Une ambiance immense, froide et brillante, comme un data center dans les étoiles.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Docu</span><span class="badge badge-dark">★ 7.8</span></div><div class="card-bottom"><h3>Item 9</h3><div class="meta"><span>2020</span><span>Documentaire</span><span>1h21</span></div><div class="desc">Un regard précis sur le réel, sans sucre inutile ni pirouette de scénario.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Film</span><span class="badge badge-dark">★ 8.5</span></div><div class="card-bottom"><h3>Item 10</h3><div class="meta"><span>2022</span><span>Drame</span><span>1h57</span></div><div class="desc">Une histoire plus lente mais dense, avec ce petit goût de nuit urbaine sous pluie fine.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Film</span><span class="badge badge-dark">★ 8.1</span></div><div class="card-bottom"><h3>Item 11</h3><div class="meta"><span>2021</span><span>Aventure</span><span>2h12</span></div><div class="desc">Une virée visuelle qui empile les décors réussis comme une stack bien rangée.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Série</span><span class="badge badge-dark">★ 8.3</span></div><div class="card-bottom"><h3>Item 12</h3><div class="meta"><span>2025</span><span>Comédie</span><span>12 épisodes</span></div><div class="desc">Léger, vif, et suffisamment absurde pour une soirée sans prise de tête.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Film</span><span class="badge badge-dark">★ 7.7</span></div><div class="card-bottom"><h3>Item 13</h3><div class="meta"><span>2022</span><span>Thriller</span><span>1h48</span></div><div class="desc">Ça joue sur les silences, les regards et les détails presque invisibles.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Docu</span><span class="badge badge-dark">★ 8.6</span></div><div class="card-bottom"><h3>Item 14</h3><div class="meta"><span>2024</span><span>Documentaire</span><span>1h40</span></div><div class="desc">Dense, élégant, instructif, avec juste ce qu’il faut de souffle pour captiver.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Top</span><span class="badge badge-dark">★ 9.3</span></div><div class="card-bottom"><h3>Item 15</h3><div class="meta"><span>2025</span><span>Action</span><span>2h18</span></div><div class="desc">Le gros morceau du catalogue. Celui qui débarque avec les bottes, la bande-son et l’impact.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Docu</span><span class="badge badge-dark">★ 8.6</span></div><div class="card-bottom"><h3>Item 14</h3><div class="meta"><span>2024</span><span>Documentaire</span><span>1h40</span></div><div class="desc">Dense, élégant, instructif, avec juste ce qu’il faut de souffle pour captiver.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Top</span><span class="badge badge-dark">★ 9.3</span></div><div class="card-bottom"><h3>Item 15</h3><div class="meta"><span>2025</span><span>Action</span><span>2h18</span></div><div class="desc">Le gros morceau du catalogue. Celui qui débarque avec les bottes, la bande-son et l’impact.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                     <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Film</span><span class="badge badge-dark">★ 7.9</span></div><div class="card-bottom"><h3>Item 5</h3><div class="meta"><span>2021</span><span>Comédie</span><span>1h44</span></div><div class="desc">Un chaos drôle, bien rythmé, avec assez d’énergie pour réveiller une base SQL en sommeil.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Film</span><span class="badge badge-dark">★ 8.2</span></div><div class="card-bottom"><h3>Item 6</h3><div class="meta"><span>2024</span><span>Action</span><span>2h10</span></div><div class="desc">Des poursuites, des ombres et un montage sec comme une requête bien indexée.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Série</span><span class="badge badge-dark">★ 8.8</span></div><div class="card-bottom"><h3>Item 7</h3><div class="meta"><span>2025</span><span>Thriller</span><span>8 épisodes</span></div><div class="desc">Ça démarre doucement, puis ça mord d’un coup comme un bug planqué depuis 3 semaines.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Top</span><span class="badge badge-dark">★ 9.0</span></div><div class="card-bottom"><h3>Item 8</h3><div class="meta"><span>2023</span><span>Science-fiction</span><span>2h01</span></div><div class="desc">Une ambiance immense, froide et brillante, comme un data center dans les étoiles.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Docu</span><span class="badge badge-dark">★ 7.8</span></div><div class="card-bottom"><h3>Item 9</h3><div class="meta"><span>2020</span><span>Documentaire</span><span>1h21</span></div><div class="desc">Un regard précis sur le réel, sans sucre inutile ni pirouette de scénario.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Film</span><span class="badge badge-dark">★ 8.5</span></div><div class="card-bottom"><h3>Item 10</h3><div class="meta"><span>2022</span><span>Drame</span><span>1h57</span></div><div class="desc">Une histoire plus lente mais dense, avec ce petit goût de nuit urbaine sous pluie fine.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Film</span><span class="badge badge-dark">★ 8.1</span></div><div class="card-bottom"><h3>Item 11</h3><div class="meta"><span>2021</span><span>Aventure</span><span>2h12</span></div><div class="desc">Une virée visuelle qui empile les décors réussis comme une stack bien rangée.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Série</span><span class="badge badge-dark">★ 8.3</span></div><div class="card-bottom"><h3>Item 12</h3><div class="meta"><span>2025</span><span>Comédie</span><span>12 épisodes</span></div><div class="desc">Léger, vif, et suffisamment absurde pour une soirée sans prise de tête.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Film</span><span class="badge badge-dark">★ 7.7</span></div><div class="card-bottom"><h3>Item 13</h3><div class="meta"><span>2022</span><span>Thriller</span><span>1h48</span></div><div class="desc">Ça joue sur les silences, les regards et les détails presque invisibles.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Docu</span><span class="badge badge-dark">★ 8.6</span></div><div class="card-bottom"><h3>Item 14</h3><div class="meta"><span>2024</span><span>Documentaire</span><span>1h40</span></div><div class="desc">Dense, élégant, instructif, avec juste ce qu’il faut de souffle pour captiver.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Top</span><span class="badge badge-dark">★ 9.3</span></div><div class="card-bottom"><h3>Item 15</h3><div class="meta"><span>2025</span><span>Action</span><span>2h18</span></div><div class="desc">Le gros morceau du catalogue. Celui qui débarque avec les bottes, la bande-son et l’impact.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Docu</span><span class="badge badge-dark">★ 8.6</span></div><div class="card-bottom"><h3>Item 14</h3><div class="meta"><span>2024</span><span>Documentaire</span><span>1h40</span></div><div class="desc">Dense, élégant, instructif, avec juste ce qu’il faut de souffle pour captiver.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+                    <div class="super-card"><div class="card-overlay"><div class="top-badges"><span class="badge badge-red">Top</span><span class="badge badge-dark">★ 9.3</span></div><div class="card-bottom"><h3>Item 15</h3><div class="meta"><span>2025</span><span>Action</span><span>2h18</span></div><div class="desc">Le gros morceau du catalogue. Celui qui débarque avec les bottes, la bande-son et l’impact.</div><div class="card-actions"><button class="mini-btn play">▶ Lecture</button><button class="mini-btn add">+ Liste</button></div></div></div></div>
+          
                 </div>
 
             </main>
@@ -698,13 +756,13 @@
                 <div class="reco-sub">Basées sur tes derniers visionnages</div>
 
                 <div class="DatadetailHisto">
-                    <strong>Cyber Night</strong>
-                    <span>Science-fiction • 2025 • 2h03</span>
+                    <strong>Person of Interest </strong>
+                    <span>Reprendre S02-04</span>
                 </div>
 
                 <div class="DatadetailHisto">
-                    <strong>Cold Signal</strong>
-                    <span>Thriller • Mini-série • 8 épisodes</span>
+                    <strong>Dexter</strong>
+                    <span>Reprendre S1-01</span>
                 </div>
 
                 <div class="DatadetailHisto">
@@ -723,6 +781,8 @@
 </body>
 </html>
 
+
+`);
 
 
 
